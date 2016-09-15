@@ -109,6 +109,13 @@ Abstraction   -> Embedding
 
 * Why Go?
 
+* ...
+
+- Concurrency as first class citizen
+- Rich toolchain
+- Amazing stdlib
+- Cross-compilation part of build tool
+
 * Concurrency
 
 .play concurrency.go /OMIT/,/END OMIT/
@@ -147,11 +154,48 @@ Abstraction   -> Embedding
 		log.Fatal(http.ListenAndServe(":3000", nil))
 	}
 
-* all about packages
+* But I really want a web framework!
+
+- https://github.com/go-martini/martini
+
+  package main
+
+  import "github.com/go-martini/martini"
+
+  func main() {
+    m := martini.Classic()
+    m.Get("/", func() string {
+      return "Hello world!"
+    })
+    m.Run()
+  }
+
+* All about packages
 
 - https://github.com/gorilla/mux
 - https://github.com/urfave/negroni
 - https://github.com/Tonkpils/grot
+
+* Cross Compilation
+
+Write code once, build for all OS/ARCHs
+
+  GOOS=$os GOARCH=$arch go build
+
+Even ARM 5, 6, and 7
+
+  GOOS=$os GOARCH=$arch GOARM=$arm go build
+
+* Who is using it?
+
+- Docker
+- Heroku
+- Google
+- https://github.com/golang/go/wiki/GoUsers
+- ...
+- You! https://github.com/heroku/cli
+- Chloe + Isabel! https://github.com/chloeandisabel/candi-bot
+
 
 * Try it out!
 
