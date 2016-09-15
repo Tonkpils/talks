@@ -12,7 +12,7 @@ func main() {
 	b := "5"
 	fmt.Println("Define and assign:", b)
 
-	//sets a different value to a
+	//sets a different value to b
 	b = "10"
 	fmt.Println("Changing value:", b)
 	// END OMIT
