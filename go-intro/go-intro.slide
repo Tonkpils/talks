@@ -1,0 +1,159 @@
+Language Wars
+A very brief introduction to Go
+Tags: introduction, go
+
+Leo Correa
+Software Engineer, Chloe + Isabel
+leo@leocorrea.fyi
+https://leonardocorrea.com
+@__leocorrea
+
+* Meet Golang Gopher
+
+.background img.jpg
+
+* About Go
+
+- Statically typed
+
+- Compiled
+
+- Garbage collected
+
+- CSP-Styled concurrency model
+
+- Fun to write!
+
+* Traditional Hello World
+
+.play hello_world.go
+
+* Basics
+
+* Variable assignment
+
+.play -edit variables.go /OMIT/,/END OMIT/
+
+* Loops
+
+.play -edit loops.go /REGULAR OMIT/,/REGULAR END OMIT/
+
+* Functions
+
+- func DifferentTypes(a int, b string)
+
+- func SameType(a, b int)
+
+- func ReturnValue(a, b int) error
+
+- func MultipleReturn(a, b int) (string, error)
+
+- func NamedReturns(a, b int) (status string, err error)
+
+* Types and Values
+
+  "Go has types and values rather than classes and objects"
+
+.play structs.go
+
+
+* Types and Methods
+
+.play methods.go
+
+* What about OOP?
+
+Encapsulation -> Packages
+Inheritance   -> Composition
+Polymorphism  -> Interfaces
+Abstraction   -> Embedding
+
+* Encapsulation
+
+  package somepackage
+
+  type Foo struct {
+    Exported string
+    unexported int
+  }
+
+  func (f *Foo) Available() {
+    // Available from any package that imports 'somepackage'
+  }
+
+  func (f *Foo) private() {
+    // Only available within package 'somepackage'
+  }
+
+* Encapsulation
+
+  package main
+
+  import 'somepackage'
+
+  func main() {
+    foo := somepackage.Foo{}
+    foo.Available() // works!
+    foo.Exported // works!
+    foo.private() // compile error!
+    foo.unexported // compile error!
+  }
+
+* Polymorphism
+
+.play polymorphism.go /OMIT/,/END OMIT/
+
+* Inheritance
+
+.play inheritance.go /OMIT/,/END OMIT/
+
+* Why Go?
+
+* Concurrency
+
+.play concurrency.go /OMIT/,/END OMIT/
+
+* Rich Toolchain
+
+- go tool
+- gofmt
+
+* Stdlib Packages
+
+- net/http
+- io
+- encoding
+- testing
+- ...
+
+* What about web frameworks! (╯°□°)╯︵ ┻━┻
+
+* net/http
+
+	package main
+
+	import (
+		"io"
+		"net/http"
+		"log"
+	)
+
+	func HelloHandler(w http.ResponseWriter, req *http.Request) {
+		io.WriteString(w, "Hello, world!\n")
+	}
+
+	func main() {
+		http.HandleFunc("/hello", HelloHandler)
+		log.Fatal(http.ListenAndServe(":3000", nil))
+	}
+
+* all about packages
+
+- https://github.com/gorilla/mux
+- https://github.com/urfave/negroni
+- https://github.com/Tonkpils/grot
+
+* Try it out!
+
+  $ brew install go
+
