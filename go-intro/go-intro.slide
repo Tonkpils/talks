@@ -163,16 +163,24 @@ Abstraction   -> Embedding
 	package main
 
 	import (
+		"fmt"
 		"io"
-		"net/http"
 		"log"
+		"net/http"
+		"time"
 	)
 
 	func HelloHandler(w http.ResponseWriter, req *http.Request) {
 		io.WriteString(w, "Hello, world!\n")
 	}
 
+	func HomeHandler(w http.ResponseWriter, req *http.Request) {
+		readableNow := time.Now().Format("Mon Jan _2 15:04:05 2006")
+		io.WriteString(w, fmt.Sprintf("It is: %s\n", readableNow))
+	}
+
 	func main() {
+		http.HandleFunc("/", HomeHandler)
 		http.HandleFunc("/hello", HelloHandler)
 		log.Fatal(http.ListenAndServe(":3000", nil))
 	}
