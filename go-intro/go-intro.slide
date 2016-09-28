@@ -29,6 +29,25 @@ https://leonardocorrea.com
 
 * Basics
 
+* Workspaces
+
+  bin/
+    helloworld
+  pkg/
+    darwin_amd64/
+      github.com/golang/example/
+        stringutil.a
+  src/
+    github.com/Tonkpils/helloworld/
+      .git/
+      somepackage/
+        file.go
+      helloworld.go
+
+* GOPATH
+
+Defines the location of your Go workspace.
+
 * Variable assignment
 
 .play -edit variables.go /OMIT/,/END OMIT/
