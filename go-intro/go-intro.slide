@@ -141,7 +141,11 @@ Abstraction   -> Embedding
 * Rich Toolchain
 
 - go tool
-- gofmt
+- go build
+- go clean
+- go env
+- go fmt
+- go generate
 
 * Stdlib Packages
 
@@ -149,6 +153,7 @@ Abstraction   -> Embedding
 - io
 - encoding
 - testing
+- database/sql
 - ...
 
 * What about web frameworks! (╯°□°)╯︵ ┻━┻
@@ -193,6 +198,8 @@ Abstraction   -> Embedding
 - https://github.com/gorilla/mux
 - https://github.com/urfave/negroni
 - https://github.com/Tonkpils/grot
+- https://github.com/avelino/awesome-go
+- ...
 
 * Cross Compilation
 
@@ -212,8 +219,6 @@ Even ARM 5, 6, and 7
 - https://github.com/golang/go/wiki/GoUsers
 - ...
 - You! https://github.com/heroku/cli
-- Chloe + Isabel! https://github.com/chloeandisabel/candi-bot
-
 
 * Try it out!
 
